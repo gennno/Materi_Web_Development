@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh JavaScript Lengkap</title>
+    <style>
+        /* Gaya dasar halaman */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+        }
+
+        #kotak {
+            width: 150px;
+            height: 150px;
+            background-color: lightgray;
+            margin: 20px auto;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+<h1>JavaScript Interaktif</h1>
+<p>Masukkan nama kamu, klik tombol, dan lihat apa yang terjadi!</p>
+
+<!-- Input nama pengguna -->
+<input type="text" id="nama" placeholder="Masukkan nama kamu">
+<button onclick="sapaPengguna()">Sapa Saya</button>
+
+<!-- Paragraf yang akan diubah -->
+<p id="pesan"></p>
+
+<!-- Kotak yang akan berubah warna -->
+<div id="kotak"></div>
+<button onclick="ubahWarna()">Ubah Warna Kotak</button>
+
+<!-- Menampilkan waktu -->
+<p id="waktu"></p>
+
+<script>
+    // Fungsi untuk menampilkan pesan sapaan
+    function sapaPengguna() {
+        let nama = document.getElementById("nama").value;
+        if (nama) {
+            document.getElementById("pesan").innerHTML = "Halo, " + nama + "! Selamat datang.";
+        } else {
+            alert("Silakan masukkan nama kamu!");
+        }
+    }
+
+    // Fungsi untuk mengubah warna kotak
+    function ubahWarna() {
+        let kotak = document.getElementById("kotak");
+        let warnaSekarang = kotak.style.backgroundColor;
+
+        if (warnaSekarang === 'lightgray' || warnaSekarang === '') {
+            kotak.style.backgroundColor = 'lightgreen';
+        } else {
+            kotak.style.backgroundColor = 'lightgray';
+        }
+    }
+
+    // Fungsi untuk menampilkan waktu saat ini
+    function tampilkanWaktu() {
+        let waktu = new Date();
+        document.getElementById("waktu").innerHTML = "Waktu saat ini: " + waktu.toLocaleTimeString();
+    }
+
+    // Memperbarui waktu setiap detik
+    setInterval(tampilkanWaktu, 1000);
+</script>
+
+</body>
+</html>

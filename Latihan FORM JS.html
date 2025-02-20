@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pendaftaran Calon Mahasiswa Baru</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            display: inline-block;
+            width: 120px;
+        }
+        input[type="text"],
+        select,
+        textarea {
+            width: 200px;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        .checkbox-group, .radio-group {
+            margin-left: 125px;
+        }
+        .buttons {
+            margin-left: 125px;
+        }
+        .output {
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+        }
+        .output label {
+            display: inline-block;
+            width: 120px;
+        }
+        .output-data {
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        textarea {
+            width: 100%;
+            height: 50px;
+            resize: none;
+        }
+        .delete-button {
+            margin-top: 10px;
+            padding: 8px 20px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Formulir Pendaftaran Calon Mahasiswa Baru</h2>
+    <form id="registrationForm">
+        <div class="form-group">
+            <label for="name">Nama:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="address">Alamat:</label>
+            <input type="text" id="address" name="address" required>
+        </div>
+        <div class="form-group">
+            <label for="school">Asal Sekolah:</label>
+            <select id="school" name="school" required>
+                <option value="SMA">SMA</option>
+                <option value="SMK">SMK</option>
+                <option value="MA">MA</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Jurusan dipilih:</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" id="jurusan1" name="jurusan" value="Teknik Informatika"> Teknik Informatika</label><br>
+                <label><input type="checkbox" id="jurusan2" name="jurusan" value="Manajemen Informatika"> Manajemen Informatika</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Jenjang:</label>
+            <div class="radio-group">
+                <label><input type="radio" id="diploma" name="jenjang" value="Diploma" required> Diploma</label>
+                <label><input type="radio" id="sarjana" name="jenjang" value="Sarjana" required> Sarjana</label>
+            </div>
+        </div>
+        <div class="buttons">
+            <input type="submit" value="Kirim">
+            <input type="reset" value="Reset">
+        </div>
+    </form>
+
+    <div class="output" id="outputSection" style="display:none;">
+        <h3>Data Pendaftaran:</h3>
+        <div class="output-data">
+            <label for="outputName">Nama:</label>
+            <textarea id="outputName" readonly></textarea>
+        </div>
+        <div class="output-data">
+            <label for="outputAddress">Alamat:</label>
+            <textarea id="outputAddress" readonly></textarea>
+        </div>
+        <div class="output-data">
+            <label for="outputSchool">Asal Sekolah:</label>
+            <textarea id="outputSchool" readonly></textarea>
+        </div>
+        <div class="output-data">
+            <label for="outputJurusan">Jurusan:</label>
+            <textarea id="outputJurusan" readonly></textarea>
+        </div>
+        <div class="output-data">
+            <label for="outputJenjang">Jenjang:</label>
+            <textarea id="outputJenjang" readonly></textarea>
+        </div>
+        <button class="delete-button" id="deleteButton">Hapus Data</button>
+    </div>
+</div>
+
+<script>
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Mencegah form dari pengiriman default
+
+        // Ambil nilai dari form
+        const name = document.getElementById('name').value;
+        const address = document.getElementById('address').value;
+        const school = document.getElementById('school').value;
+
+        let jurusan = '';
+        if (document.getElementById('jurusan1').checked) {
+            jurusan += 'Teknik Informatika\n';
+        }
+        if (document.getElementById('jurusan2').checked) {
+            jurusan += 'Manajemen Informatika\n';
+        }
+
+        const jenjang = document.querySelector('input[name="jenjang"]:checked').value;
+
+        // Tampilkan data di bagian output
+        document.getElementById('outputName').value = name;
+        document.getElementById('outputAddress').value = address;
+        document.getElementById('outputSchool').value = school;
+        document.getElementById('outputJurusan').value = jurusan.trim();
+        document.getElementById('outputJenjang').value = jenjang;
+
+        // Tampilkan section hasil output
+        document.getElementById('outputSection').style.display = 'block';
+    });
+
+    // Fungsi untuk menghapus data yang sudah ditampilkan
+    document.getElementById('deleteButton').addEventListener('click', function() {
+        document.getElementById('outputSection').style.display = 'none';
+        document.getElementById('outputName').value = '';
+        document.getElementById('outputAddress').value = '';
+        document.getElementById('outputSchool').value = '';
+        document.getElementById('outputJurusan').value = '';
+        document.getElementById('outputJenjang').value = '';
+    });
+</script>
+
+</body>
+</html>

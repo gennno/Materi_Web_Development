@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Web Responsif</title>
+    <style>
+        /* Gaya dasar untuk body */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #e0f7fa; /* Latar belakang biru muda */
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #00796b; /* Warna hijau tua */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        /* Kontainer menggunakan Grid */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 kolom di desktop */
+            gap: 20px; /* Jarak antar kolom */
+            margin-top: 20px;
+        }
+
+        /* Gaya untuk setiap kotak (box) */
+        .box {
+            background-color: white; /* Warna latar belakang kotak */
+            padding: 20px;
+            border: 2px solid #00796b; /* Border hijau */
+            border-radius: 10px; /* Sudut kotak melengkung */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s; /* Efek transisi saat hover */
+        }
+
+        .box:hover {
+            transform: scale(1.05); /* Zoom saat hover */
+        }
+
+        /* Flexbox untuk tombol */
+        .flex-container {
+            display: flex; /* Mengaktifkan flexbox */
+            justify-content: center; /* Menempatkan tombol di tengah */
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #00796b; /* Warna hijau tua */
+            color: white;
+            border: none;
+            border-radius: 5px; /* Sudut tombol melengkung */
+            cursor: pointer;
+            transition: background-color 0.3s; /* Efek transisi saat hover */
+            margin: 0 10px; /* Jarak antar tombol */
+        }
+
+        button:hover {
+            background-color: #004d40; /* Warna lebih gelap saat hover */
+        }
+
+        /* Media Query untuk tablet */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr); /* 2 kolom di tablet */
+            }
+        }
+
+        /* Media Query untuk HP */
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* 1 kolom di HP */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Halaman Web Responsif</h1>
+</header>
+
+<!-- Kontainer menggunakan Grid -->
+<div class="grid-container">
+    <div class="box">Kotak 1: Selamat datang!</div>
+    <div class="box">Kotak 2: Belajar HTML & CSS</div>
+    <div class="box">Kotak 3: Buat Web Responsif!</div>
+</div>
+
+<!-- Kontainer menggunakan Flexbox untuk tombol -->
+<div class="flex-container">
+    <button onclick="alert('Tombol 1 Diklik!')">Tombol 1</button>
+    <button onclick="alert('Tombol 2 Diklik!')">Tombol 2</button>
+</div>
+
+</body>
+</html>

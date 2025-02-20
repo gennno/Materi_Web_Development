@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh CSS Lengkap</title>
+    <style>
+        /* Mengatur latar belakang dan font dasar */
+        body {
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Mengatur gaya untuk elemen header */
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Mengatur judul */
+        h1 {
+            font-size: 36px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Gaya untuk paragraf */
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+            margin: 20px;
+        }
+
+        /* Gaya untuk tautan */
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #ff6600;
+        }
+
+        /* Gaya untuk tombol */
+        button {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #ff6600;
+        }
+
+        /* Membuat tata letak grid */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .grid-item {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        /* Media query untuk tampilan mobile */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Halaman Contoh CSS Lengkap</h1>
+</header>
+
+<p>Ini adalah contoh halaman yang menggunakan berbagai properti CSS, termasuk pengaturan warna, tata letak, teks, dan efek hover.</p>
+
+<div class="grid-container">
+    <div class="grid-item">Item 1</div>
+    <div class="grid-item">Item 2</div>
+    <div class="grid-item">Item 3</div>
+</div>
+
+<a href="#">Ini adalah tautan yang bisa diklik</a>
+
+<p>Anda bisa menambahkan banyak elemen lain untuk mempercantik halaman Anda.</p>
+
+<button>Klik Saya</button>
+
+</body>
+</html>
